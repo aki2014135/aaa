@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/yahoo-wheel-specs.schema.json",
+  "title": "WheelSpecs",
+  "type": "object",
+  "properties": {
+    "brand": {"type": "string"},
+    "model": {"type": "string"},
+    "inch": {"type": "string"},
+    "width": {"type": "string"},
+    "holes": {"type": "string"},
+    "pcd": {"type": "string"},
+    "offset": {"type": "string"}
+  },
+  "required": [
+    "brand",
+    "model",
+    "inch",
+    "width",
+    "holes",
+    "pcd",
+    "offset"
+  ],
+  "additionalProperties": false
+}
