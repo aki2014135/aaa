@@ -5,7 +5,14 @@ import json
 import time
 from typing import Iterable, Optional
 
-import httpx
+try:  # pragma: no cover - optional dependency
+    import httpx  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - fallback path
+    httpx = None  # type: ignore
+
+from urllib import error as urllib_error
+from urllib import request as urllib_request
+
 from bs4 import BeautifulSoup
 
 DESKTOP_UA = (
@@ -42,10 +49,18 @@ def fetch_html(url: str, *, timeout: float = 10.0, retries: int = 3, backoff: fl
         if delay:
             time.sleep(delay)
         try:
-            with httpx.Client(timeout=timeout, headers=headers) as client:
-                response = client.get(url, follow_redirects=True)
-                response.raise_for_status()
-                return BeautifulSoup(response.text, "lxml")
+            if httpx is not None:
+                with httpx.Client(timeout=timeout, headers=headers) as client:
+                    response = client.get(url, follow_redirects=True)
+                    response.raise_for_status()
+                    return BeautifulSoup(response.text, "html.parser")
+            request = urllib_request.Request(url, headers=headers)
+            with urllib_request.urlopen(request, timeout=timeout) as resp:  # type: ignore[arg-type]
+                status = getattr(resp, "status", resp.getcode())
+                if status and status >= 400:
+                    raise urllib_error.HTTPError(url, status, "HTTP error", hdrs=None, fp=None)
+                content = resp.read().decode("utf-8", errors="ignore")
+            return BeautifulSoup(content, "html.parser")
         except Exception as exc:  # pragma: no cover - safety net
             last_exc = exc
             delay = delay * backoff if delay else backoff
