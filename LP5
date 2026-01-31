@@ -1,8 +1,48 @@
 <div id="shopify-section-custom-liquid-realjdmwheels" class="shopify-section">
   <style>
+    #shopify-section-custom-liquid-realjdmwheels {
+      --ink: #121316;
+      --muted: #4f565f;
+      --line: rgba(16, 24, 40, 0.12);
+      --soft-line: rgba(16, 24, 40, 0.08);
+      --chip: rgba(17, 24, 39, 0.08);
+      --panel: #ffffff;
+      --wash: radial-gradient(circle at 10% 0%, rgba(188, 9, 19, 0.06), transparent 55%),
+        radial-gradient(circle at 90% 10%, rgba(25, 78, 130, 0.05), transparent 50%),
+        linear-gradient(180deg, #f6f7f9 0%, #ffffff 45%, #f5f6f8 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans", Meiryo, sans-serif;
+      color: var(--ink);
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .section {
+      background: var(--wash);
+      padding: 20px 0;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .container-narrow {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
     #shopify-section-custom-liquid-realjdmwheels .block-section {
       margin-top: 72px;
       margin-bottom: 72px;
+      position: relative;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .block-section::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background: var(--soft-line);
+      margin: 72px auto 0;
+      max-width: 640px;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .block-section:last-child::after {
+      display: none;
     }
 
     #shopify-section-custom-liquid-realjdmwheels .block-section-padded {
@@ -14,51 +54,162 @@
 
     @media (min-width: 990px) {
       #shopify-section-custom-liquid-realjdmwheels .block-section {
-        margin-top: 90px;
-        margin-bottom: 90px;
+        margin-top: 96px;
+        margin-bottom: 96px;
+      }
+
+      #shopify-section-custom-liquid-realjdmwheels .block-section::after {
+        margin-top: 96px;
       }
 
       #shopify-section-custom-liquid-realjdmwheels .block-section-padded {
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 90px;
-        padding-bottom: 90px;
+        padding-top: 96px;
+        padding-bottom: 96px;
+      }
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .section-rich-text {
+      display: flex;
+      justify-content: center;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rich-text-content {
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 18px 50px rgba(16, 24, 40, 0.06);
+      border: 1px solid var(--soft-line);
+      max-width: 720px;
+      width: 100%;
+    }
+
+    @media (min-width: 750px) {
+      #shopify-section-custom-liquid-realjdmwheels .rich-text-content {
+        padding: 40px 48px;
       }
     }
 
     /* Heading underline style (same vibe as your sample) */
     #shopify-section-custom-liquid-realjdmwheels .rich-text .heading-size-md {
       border-bottom: 3px solid #bc0913;
-      padding-bottom: 6px;
-      margin-bottom: 16px;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    /* Tables: keep readable in product pages */
+    #shopify-section-custom-liquid-realjdmwheels .heading-size-md::before {
+      content: attr(data-step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte {
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte p {
+      margin: 0 0 14px;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte p + p {
+      margin-top: 12px;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte ul {
+      margin: 18px 0 22px;
+      padding-left: 1.4em;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte li {
+      margin: 10px 0;
+      line-height: 1.8;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-check,
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-warn,
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-lead {
+      position: relative;
+      padding-left: 1.7em;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-check::before,
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-warn::before,
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-lead::before {
+      position: absolute;
+      left: 0;
+      top: 0.05em;
+      font-size: 1.05em;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-check::before {
+      content: "✔";
+      color: #1b5f3b;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-warn::before {
+      content: "⚠";
+      color: #8a6b0f;
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .rte .mark-lead::before {
+      content: "👉";
+      color: #3d5168;
+    }
+
     #shopify-section-custom-liquid-realjdmwheels .rte table {
       width: 100%;
       border-collapse: collapse;
-      margin: 14px 0;
+      margin: 22px 0 10px;
+      font-size: 0.98rem;
     }
 
     #shopify-section-custom-liquid-realjdmwheels .rte th,
     #shopify-section-custom-liquid-realjdmwheels .rte td {
-      border: 1px solid rgba(0,0,0,0.15);
-      padding: 10px 12px;
+      border: 1px solid var(--line);
+      padding: 12px 14px;
       vertical-align: top;
     }
 
     #shopify-section-custom-liquid-realjdmwheels .rte th {
       font-weight: 700;
+      color: var(--ink);
+      background: rgba(17, 24, 39, 0.03);
     }
 
-    /* Small spacing polish */
-    #shopify-section-custom-liquid-realjdmwheels .rte ul {
-      margin: 10px 0 16px;
-      padding-left: 1.2em;
+    #shopify-section-custom-liquid-realjdmwheels .rte tbody tr:nth-child(even) {
+      background: rgba(17, 24, 39, 0.02);
     }
 
-    #shopify-section-custom-liquid-realjdmwheels .rte li {
-      margin: 6px 0;
+    #shopify-section-custom-liquid-realjdmwheels .section-final .rich-text-content {
+      border-color: rgba(188, 9, 19, 0.25);
+      box-shadow: 0 20px 60px rgba(188, 9, 19, 0.08);
+    }
+
+    #shopify-section-custom-liquid-realjdmwheels .section-final .rte {
+      font-size: 1.05rem;
     }
   </style>
 
@@ -69,7 +220,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">① あなたが今ちょうど感じていること</h2>
+            <h2 class="heading-size-md" data-step="①">① あなたが今ちょうど感じていること</h2>
             <div class="rich-text-text rte text-size-md">
               <p>JDMホイールを海外から買おうとすると、たぶん頭の中こうなってる。</p>
               <ul>
@@ -94,7 +245,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">② 問題の本質はホイールじゃない</h2>
+            <h2 class="heading-size-md" data-step="②">② 問題の本質はホイールじゃない</h2>
             <div class="rich-text-text rte text-size-md">
               <p>同じモデル</p>
               <p>同じサイズ</p>
@@ -102,8 +253,8 @@
               <p>でも</p>
               <p><strong>どこから買うかでリスクがまったく変わる。</strong></p>
               <p>安く見えるルートほど</p>
-              <p>✔ 誰も責任を持たない</p>
-              <p>✔ トラブルが自己責任になる</p>
+              <p class="mark-check">✔ 誰も責任を持たない</p>
+              <p class="mark-check">✔ トラブルが自己責任になる</p>
               <p>この構造になっていることが多い。</p>
               <p>つまり比較すべきは「価格」ではなく</p>
               <p><strong>“誰がどこまで責任を持つか”</strong></p>
@@ -116,7 +267,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">③ JDMホイールの購入ルートは3種類しかない</h2>
+            <h2 class="heading-size-md" data-step="③">③ JDMホイールの購入ルートは3種類しかない</h2>
             <div class="rich-text-text rte text-size-md">
               <p><strong>1️⃣ マーケットプレイス型（eBayなど）</strong></p>
               <p>個人出品が中心</p>
@@ -141,7 +292,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">④ 購入方法で「責任の範囲」がここまで違う</h2>
+            <h2 class="heading-size-md" data-step="④">④ 購入方法で「責任の範囲」がここまで違う</h2>
             <div class="rich-text-text rte text-size-md">
               <table>
                 <thead>
@@ -177,7 +328,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">⑤ 海外購入の本当のリスク</h2>
+            <h2 class="heading-size-md" data-step="⑤">⑤ 海外購入の本当のリスク</h2>
             <div class="rich-text-text rte text-size-md">
               <p>価格より先に考えるべき現実がある。</p>
               <ul>
@@ -201,7 +352,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">⑥ じゃあ誰がそのリスクを引き受けるのか？</h2>
+            <h2 class="heading-size-md" data-step="⑥">⑥ じゃあ誰がそのリスクを引き受けるのか？</h2>
             <div class="rich-text-text rte text-size-md">
               <p>答えが</p>
               <p><strong>専門輸出ショップという存在</strong></p>
@@ -222,7 +373,7 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">⑦ その型に当てはまるのが Real JDM Wheels</h2>
+            <h2 class="heading-size-md" data-step="⑦">⑦ その型に当てはまるのが Real JDM Wheels</h2>
             <div class="rich-text-text rte text-size-md">
 
               <p>ここからが具体的な話。</p>
@@ -234,7 +385,7 @@
                 <li>円安と海外需要で日本相場自体が上昇中</li>
                 <li>安いボロではなく<strong>状態重視で選別</strong></li>
               </ul>
-              <p>👉 海外向けに出せる個体だけを仕入れている</p>
+              <p class="mark-lead">👉 海外向けに出せる個体だけを仕入れている</p>
 
               <p><strong>■ 発送は“安く送る”ではなく“無事に届け切る設計”</strong></p>
               <ul>
@@ -243,7 +394,7 @@
                 <li>梱包サイズ最小化</li>
                 <li>強度最大化の専用梱包</li>
               </ul>
-              <p>👉 送料は削るコストではなく</p>
+              <p class="mark-lead">👉 送料は削るコストではなく</p>
               <p><strong>壊さず早く届けるための投資</strong></p>
 
               <p><strong>■ 関税はなぜ請求されないのか</strong></p>
@@ -253,37 +404,37 @@
                 <li>通関ストレスなし</li>
                 <li>書類対応不要</li>
               </ul>
-              <p>👉 <strong>表示価格＝最終支払額</strong></p>
+              <p class="mark-lead">👉 <strong>表示価格＝最終支払額</strong></p>
 
               <p><strong>■ 状態が違ったら？</strong></p>
               <ul>
                 <li>配送中の破損 → 修理費相当を部分返金</li>
                 <li>画像と状態が異なる → 状態差に応じて部分返金</li>
               </ul>
-              <p>👉 海外購入のリスクをショップ側が負担</p>
+              <p class="mark-lead">👉 海外購入のリスクをショップ側が負担</p>
 
               <p><strong>■ 写真の背景がバラバラな理由</strong></p>
               <ul>
                 <li>日本国内の複数ルートから仕入れ</li>
-                <li>✔ オークション</li>
-                <li>✔ 車屋</li>
-                <li>✔ パーツ業者</li>
+                <li class="mark-check">✔ オークション</li>
+                <li class="mark-check">✔ 車屋</li>
+                <li class="mark-check">✔ パーツ業者</li>
                 <li>倉庫・店舗・屋外など撮影環境が異なる</li>
               </ul>
               <p>これは在庫を集めて撮り直す大型業者ではなく</p>
               <p><strong>希少品をいち早く確保する仕入れ体制</strong>だから</p>
-              <p>👉 写真が統一されていない＝怪しい ではなく</p>
+              <p class="mark-lead">👉 写真が統一されていない＝怪しい ではなく</p>
               <p><strong>流通ルートが広い＝選べる在庫が多い</strong></p>
 
               <p><strong>■ 同じ写真を他サイトでも見る理由</strong></p>
               <p>日本の中古市場では</p>
               <p>仕入れ元の公式流通画像が使われるのが一般的</p>
               <p>違いはここ👇</p>
-              <p>✔ 海外発送対応</p>
-              <p>✔ 関税込み価格</p>
-              <p>✔ 英語サポート</p>
-              <p>✔ 梱包・保証対応</p>
-              <p>👉 同じホイールでも</p>
+              <p class="mark-check">✔ 海外発送対応</p>
+              <p class="mark-check">✔ 関税込み価格</p>
+              <p class="mark-check">✔ 英語サポート</p>
+              <p class="mark-check">✔ 梱包・保証対応</p>
+              <p class="mark-lead">👉 同じホイールでも</p>
               <p><strong>どこから買うかで安心度がまったく違う</strong></p>
 
               <p><strong>■ 日本から送るならどこでも同じでは？</strong></p>
@@ -309,7 +460,7 @@
                   </tr>
                 </tbody>
               </table>
-              <p>👉 「送る」ではなく</p>
+              <p class="mark-lead">👉 「送る」ではなく</p>
               <p><strong>“無事に届け切る”設計</strong></p>
 
               <p><strong>■ 実在するショップなのか？</strong></p>
@@ -318,7 +469,7 @@
                 <li>FedExなど大手キャリアのみ使用</li>
                 <li>追跡番号付き国際配送のみ</li>
               </ul>
-              <p>👉 消える前提のアカウントではなく</p>
+              <p class="mark-lead">👉 消える前提のアカウントではなく</p>
               <p><strong>継続運営前提の専門店</strong></p>
 
               <p><strong>■ どんな運営なのか</strong></p>
@@ -328,7 +479,7 @@
                 <li>仕入れ → 検品 → 海外発送まで一貫対応</li>
                 <li>大量販売店ではなく<strong>状態重視の専門運営</strong></li>
               </ul>
-              <p>👉 無差別転売ではなく</p>
+              <p class="mark-lead">👉 無差別転売ではなく</p>
               <p><strong>顔の見える専門商店</strong></p>
 
             </div>
@@ -340,13 +491,13 @@
       <div class="block-section">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">⑧ 安心の定義をもう一度</h2>
+            <h2 class="heading-size-md" data-step="⑧">⑧ 安心の定義をもう一度</h2>
             <div class="rich-text-text rte text-size-md">
               <p>本当の安心は</p>
-              <p>✔ 後から請求されない</p>
-              <p>✔ 壊れない</p>
-              <p>✔ 状態に嘘がない</p>
-              <p>✔ トラブル時に逃げない</p>
+              <p class="mark-check">✔ 後から請求されない</p>
+              <p class="mark-check">✔ 壊れない</p>
+              <p class="mark-check">✔ 状態に嘘がない</p>
+              <p class="mark-check">✔ トラブル時に逃げない</p>
               <p>そして</p>
               <p><strong>表示価格＝最終価格で思考停止で買えること</strong></p>
             </div>
@@ -355,10 +506,10 @@
       </div>
 
       <!-- ⑨ 結論 -->
-      <div class="block-section">
+      <div class="block-section section-final">
         <div class="section-rich-text rich-text rich-text-align-left">
           <div class="rich-text-content">
-            <h2 class="heading-size-md">⑨ 結論</h2>
+            <h2 class="heading-size-md" data-step="⑨">⑨ 結論</h2>
             <div class="rich-text-text rte text-size-md">
               <p>このホイールが欲しいなら</p>
               <p>もう問題は「買うかどうか」じゃない。</p>
